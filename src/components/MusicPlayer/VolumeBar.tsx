@@ -7,8 +7,8 @@ import {
 
 type Props = {
   value: number;
-  min: number;
-  max: number;
+  min: number | string;
+  max: number | string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   setVolume: (volume: number) => void;
 };

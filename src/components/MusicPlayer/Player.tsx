@@ -10,6 +10,7 @@ type Props = {
   onTimeUpdate: (e: React.SyntheticEvent<HTMLAudioElement, Event>) => void;
   onLoadedData: (e: React.SyntheticEvent<HTMLAudioElement, Event>) => void;
   repeat: boolean;
+  currentIndex?: number;
 };
 
 const Player: React.FC<Props> = ({
@@ -23,7 +24,6 @@ const Player: React.FC<Props> = ({
   repeat,
 }) => {
   const ref = useRef<HTMLAudioElement>(null);
-  // eslint-disable-next-line no-unused-expressions
   if (ref.current) {
     if (isPlaying) {
       ref.current.play();

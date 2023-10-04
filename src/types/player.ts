@@ -6,6 +6,6 @@ export type IPlayer = {
   currentIndex: number;
   isActive: boolean;
   isPlaying: boolean;
-  activeSong: any;
+  activeSong: ISong;
   genreListId: string;
 };

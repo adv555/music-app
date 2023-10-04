@@ -10,6 +10,7 @@ import { ISong } from '../../types/song';
 
 type Props = {
   isPlaying: boolean;
+  isActive: boolean;
   repeat: boolean;
   setRepeat: React.Dispatch<React.SetStateAction<boolean>>;
   shuffle: boolean;
@@ -22,6 +23,8 @@ type Props = {
 
 const Controls: React.FC<Props> = ({
   isPlaying,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  isActive = false,
   repeat,
   setRepeat,
   shuffle,
