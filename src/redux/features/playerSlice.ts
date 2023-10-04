@@ -1,5 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IPlayer } from '../../types/Player';
+import { ITrack } from '../../types/RootObject';
+
+interface IPlayer {
+  currentSongs: ITrack[];
+  currentIndex: number;
+  isActive: boolean;
+  isPlaying: boolean;
+  activeSong: ITrack | null;
+  genreListId: string;
+}
 
 const initialState: IPlayer = {
   currentSongs: [],
