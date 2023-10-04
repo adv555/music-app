@@ -1,26 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IPlayer } from '../../types/player';
+import { IPlayer } from '../../types/Player';
 
 const initialState: IPlayer = {
   currentSongs: [],
   currentIndex: 0,
   isActive: false,
   isPlaying: false,
-  activeSong: {
-    apple_music_url: '',
-    artist_id: '',
-    key: 0,
-    photo_url: null,
-    ringtone: '',
-    sections: [],
-    shazam_url: '',
-    spotify_uri: null,
-    spotify_uri_query: null,
-    spotify_url: null,
-    subtitle: '',
-    title: '',
-    youtube_link: null,
-  },
+  activeSong: null,
   genreListId: '',
 };
 
