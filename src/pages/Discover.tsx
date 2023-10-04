@@ -1,11 +1,13 @@
+import React from 'react';
+
 import { Error, Loader, SongCard } from '../components';
 import { genres } from '../assets/constants';
 import { useGetTopChartsQuery } from '../redux/servises/shazamCore';
 import { ISong } from '../types/song';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
-const Discover = () => {
-  const dispatch = useAppDispatch();
+function Discover() {
+  const dispatch = useAppDispatch(); // eslint-disable-line
   const { isPlaying, activeSong } = useAppSelector((state) => state.player);
 
   const { data, isFetching, error } = useGetTopChartsQuery({});
@@ -49,6 +51,6 @@ const Discover = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Discover;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
 import { ISong } from '../types/song';
 
@@ -15,8 +16,8 @@ const PlayPause: React.FC<Props> = ({
   song,
   handlePause,
   handlePlay,
-}) => {
-  return isPlaying && activeSong?.key === song.key ? (
+}) =>
+  isPlaying && activeSong?.key === song.key ? (
     <FaPauseCircle
       size={35}
       onClick={handlePause}
@@ -29,6 +30,5 @@ const PlayPause: React.FC<Props> = ({
       className="text-white text-5xl cursor-pointer"
     />
   );
-};
 
 export default PlayPause;

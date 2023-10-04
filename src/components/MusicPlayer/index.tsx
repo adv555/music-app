@@ -8,8 +8,10 @@ import Seekbar from './Seekbar';
 import Track from './Track';
 import VolumeBar from './VolumeBar';
 
-const MusicPlayer = () => {
-  const { activeSong, currentSongs, currentIndex, isActive, isPlaying } = useSelector((state) => state.player);
+function MusicPlayer() {
+  const {
+    activeSong, currentSongs, currentIndex, isActive, isPlaying,
+  } = useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
   const [appTime, setAppTime] = useState(0);
@@ -91,6 +93,6 @@ const MusicPlayer = () => {
       <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
     </div>
   );
-};
+}
 
 export default MusicPlayer;

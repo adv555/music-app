@@ -1,11 +1,21 @@
-import { useSelector } from 'react-redux';
+// import React from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
-import { ArtistDetails, TopArtists, AroundYou, Discover, Search, SongDetails, TopCharts } from './pages';
+import {
+  ArtistDetails,
+  TopArtists,
+  AroundYou,
+  Discover,
+  Search,
+  SongDetails,
+  TopCharts,
+} from './pages';
+import { useAppSelector } from './redux/hooks';
 
-const App = () => {
-  const { activeSong } = useSelector((state) => state.player);
+const App: React.FC = () => {
+  const { activeSong } = useAppSelector((state) => state.player);
 
   return (
     <div className="relative flex">

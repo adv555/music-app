@@ -1,9 +1,10 @@
 import React from 'react';
+import { ISong } from '../../types/song';
 
 type Props = {
   isPlaying: boolean;
   isActive: boolean;
-  activeSong: any;
+  activeSong: ISong | null;
 };
 
 const Track: React.FC<Props> = ({ isPlaying, isActive, activeSong }) => (

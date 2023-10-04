@@ -2,15 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import PlayPause from './PlayPause';
+import { ISong } from '../types/song';
 
 type Props = {
-  song: any;
+  song: ISong;
   i: number;
   artistId?: string;
   isPlaying: boolean;
-  activeSong: any;
+  activeSong: ISong;
   handlePauseClick: () => void;
-  handlePlayClick: (song: any, i: number) => void;
+  handlePlayClick: (song: ISong, i: number) => void;
 };
 
 const SongBar: React.FC<Props> = ({
@@ -31,13 +32,14 @@ const SongBar: React.FC<Props> = ({
     <div className="flex-1 flex flex-row justify-between items-center">
       <img
         className="w-20 h-20 rounded-lg"
-        src={
-          artistId
-            ? song?.attributes?.artwork?.url
-                .replace('{w}', '125')
-                .replace('{h}', '125')
-            : song?.images?.coverart
-        }
+        // src={
+        //   artistId
+        //     ? song?.attributes?.artwork?.url
+        //         .replace('{w}', '125')
+        //         .replace('{h}', '125')
+        //     : song?.images?.coverart
+        // }
+        src={artistId ? song?.shazam_url : 'song?.images?.coverart'}
         alt={song?.title}
       />
       <div className="flex-1 flex flex-col justify-center mx-3">
@@ -47,11 +49,13 @@ const SongBar: React.FC<Props> = ({
           </Link>
         ) : (
           <p className="text-xl font-bold text-white">
-            {song?.attributes?.name}
+            {/* {song?.attributes?.name} */}
+            {song?.title}
           </p>
         )}
         <p className="text-base text-gray-300 mt-1">
-          {artistId ? song?.attributes?.albumName : song?.subtitle}
+          {/* {artistId ? song?.attributes?.albumName : song?.subtitle} */}
+          {artistId ? song?.title : song?.subtitle}
         </p>
       </div>
     </div>

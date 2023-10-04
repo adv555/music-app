@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface ISong {
   apple_music_url: string;
   artist_id: string;

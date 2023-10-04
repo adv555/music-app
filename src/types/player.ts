@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ISong } from './song';
 
 export type IPlayer = {
