@@ -1,11 +1,10 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { ISong } from './song';
+import { ITrack } from './RootObject';
 
 export type IPlayer = {
-  currentSongs: ISong[];
+  currentSongs: ITrack[];
   currentIndex: number;
   isActive: boolean;
   isPlaying: boolean;
-  activeSong: ISong;
+  activeSong: ITrack | null;
   genreListId: string;
 };

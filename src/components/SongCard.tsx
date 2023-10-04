@@ -2,30 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
-import { ISong } from '../types/song';
 import { useAppDispatch } from '../redux/hooks';
+import { ITrack } from '../types/RootObject';
 
-// {
-//     "apple_music_url": "https://music.apple.com/gb/album/paint-the-town-red/1704921687",
-//     "artist_id": "42",
-//     "key": 673557639,
-//     "photo_url": null,
-//     "ringtone": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview116/v4/cd/87/0b/cd870b5f-c356-f761-e176-c45aba37eab1/mzaf_17565732451070337798.plus.aac.ep.m4a",
-//     "sections": [],
-//     "shazam_url": "https://www.shazam.com/track/42",
-//     "spotify_uri": null,
-//     "spotify_uri_query": null,
-//     "spotify_url": null,
-//     "subtitle": "Doja Cat",
-//     "title": "Paint The Town Red",
-//     "youtube_link": null
-//   },
+const placeholderImg =
+  'https://is3-ssl.mzstatic.com/image/thumb/Music126/v4/54/a5/a6/54a5a64a-6346-2505-7d44-6e453c593d55/651637803238.png/400x400cc.jpg';
 
 type Props = {
-  song: ISong;
+  song: ITrack;
   isPlaying: boolean;
-  activeSong: ISong | null;
-  data: ISong[];
+  activeSong: ITrack | null;
+  data: ITrack[];
   i: number;
 };
 
@@ -64,14 +51,7 @@ const SongCard: React.FC<Props> = ({
             handlePlay={handlePlayClick}
           />
         </div>
-        {/* <img src={song.images?.coverart} alt="song_img" /> */}
-        <img
-          src={
-            song.photo_url ||
-            'https://is3-ssl.mzstatic.com/image/thumb/Music126/v4/54/a5/a6/54a5a64a-6346-2505-7d44-6e453c593d55/651637803238.png/400x400cc.jpg'
-          }
-          alt="song_img"
-        />
+        <img src={song?.images?.coverart || placeholderImg} alt="song_img" />
       </div>
       <div className="mt-4 flex flex-col">
         <p className="font-semibold text-lg text-white truncate">
@@ -79,7 +59,11 @@ const SongCard: React.FC<Props> = ({
         </p>
         <p className="text-sm text-gray-300 truncate mt-1">
           <Link
-            to={song.artist_id ? `/artist/${song?.artist_id}` : '/top-artists'}
+            to={
+              song.artists
+                ? `/artists/${song?.artists[0]?.adamid}`
+                : `/top-artists`
+            }
           >
             {song.subtitle}
           </Link>

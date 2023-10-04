@@ -6,7 +6,7 @@ import {
   BsFillPlayFill,
   BsShuffle,
 } from 'react-icons/bs';
-import { ISong } from '../../types/song';
+import { ITrack } from '../../types/RootObject';
 
 type Props = {
   isPlaying: boolean;
@@ -15,7 +15,7 @@ type Props = {
   setRepeat: React.Dispatch<React.SetStateAction<boolean>>;
   shuffle: boolean;
   setShuffle: React.Dispatch<React.SetStateAction<boolean>>;
-  currentSongs: ISong[] | null;
+  currentSongs: ITrack[] | null;
   handlePlayPause: () => void;
   handlePrevSong: () => void;
   handleNextSong: () => void;

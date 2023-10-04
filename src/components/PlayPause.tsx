@@ -1,11 +1,11 @@
 import React from 'react';
 import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
-import { ISong } from '../types/song';
+import { ITrack } from '../types/RootObject';
 
 type Props = {
   isPlaying: boolean;
-  activeSong: ISong | null;
-  song: ISong;
+  activeSong: ITrack | null;
+  song: ITrack;
   handlePause: () => void;
   handlePlay: () => void;
 };

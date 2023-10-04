@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import { ISong } from '../../types/song';
+import { ITrack } from '../../types/RootObject';
 
 type Props = {
-  activeSong: ISong | null;
+  activeSong: ITrack | null;
   isPlaying: boolean;
   volume: number;
   seekTime: number;
@@ -46,8 +46,7 @@ const Player: React.FC<Props> = ({
 
   return (
     <audio
-      // src={activeSong?.hub?.actions[1]?.uri}
-      src={activeSong?.ringtone}
+      src={activeSong?.hub?.actions && activeSong.hub.actions[1]?.uri}
       ref={ref}
       loop={repeat}
       onEnded={onEnded}

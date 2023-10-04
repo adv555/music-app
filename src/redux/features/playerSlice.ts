@@ -1,15 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IPlayer } from '../../types/player';
 
-// export type PlayerProps = {
-//   currentSongs: any[];
-//   currentIndex: number;
-//   isActive: boolean;
-//   isPlaying: boolean;
-//   activeSong: any;
-//   genreListId: string;
-// };
-
 const initialState: IPlayer = {
   currentSongs: [],
   currentIndex: 0,

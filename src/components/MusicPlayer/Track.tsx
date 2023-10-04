@@ -1,10 +1,13 @@
 import React from 'react';
-import { ISong } from '../../types/song';
+import { ITrack } from '../../types/RootObject';
+
+const placeholderImg =
+  'https://is3-ssl.mzstatic.com/image/thumb/Music126/v4/54/a5/a6/54a5a64a-6346-2505-7d44-6e453c593d55/651637803238.png/400x400cc.jpg';
 
 type Props = {
   isPlaying: boolean;
   isActive: boolean;
-  activeSong: ISong | null;
+  activeSong: ITrack | null;
 };
 
 const Track: React.FC<Props> = ({ isPlaying, isActive, activeSong }) => (
@@ -15,11 +18,7 @@ const Track: React.FC<Props> = ({ isPlaying, isActive, activeSong }) => (
       } hidden sm:block h-16 w-16 mr-4`}
     >
       <img
-        // src={activeSong?.images?.coverart }
-        src={
-          activeSong?.photo_url ||
-          'https://is3-ssl.mzstatic.com/image/thumb/Music126/v4/54/a5/a6/54a5a64a-6346-2505-7d44-6e453c593d55/651637803238.png/400x400cc.jpg'
-        }
+        src={activeSong?.images?.coverart || placeholderImg}
         alt="cover art"
         className="rounded-full"
       />

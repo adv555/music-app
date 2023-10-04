@@ -1,17 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import PlayPause from './PlayPause';
-import { ISong } from '../types/song';
+import { ITrack } from '../types/RootObject';
 
 type Props = {
-  song: ISong;
+  song: ITrack;
   i: number;
   artistId?: string;
   isPlaying: boolean;
-  activeSong: ISong;
+  activeSong: ITrack | null;
   handlePauseClick: () => void;
-  handlePlayClick: (song: ISong, i: number) => void;
+  handlePlayClick: (song: ITrack, i: number) => void;
 };
 
 const SongBar: React.FC<Props> = ({
@@ -39,7 +38,7 @@ const SongBar: React.FC<Props> = ({
         //         .replace('{h}', '125')
         //     : song?.images?.coverart
         // }
-        src={artistId ? song?.shazam_url : 'song?.images?.coverart'}
+        src={artistId ? song?.hub?.image : song?.images?.coverart}
         alt={song?.title}
       />
       <div className="flex-1 flex flex-col justify-center mx-3">

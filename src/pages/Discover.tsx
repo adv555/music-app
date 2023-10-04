@@ -3,14 +3,13 @@ import React from 'react';
 import { Error, Loader, SongCard } from '../components';
 import { genres } from '../assets/constants';
 import { useGetTopChartsQuery } from '../redux/servises/shazamCore';
-import { ISong } from '../types/song';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 
-function Discover() {
+const Discover: React.FC = () => {
   const dispatch = useAppDispatch(); // eslint-disable-line
   const { isPlaying, activeSong } = useAppSelector((state) => state.player);
 
-  const { data, isFetching, error } = useGetTopChartsQuery({});
+  const { data, isFetching, error } = useGetTopChartsQuery();
 
   console.log('🚀 ~ file: Discover.tsx:19 ~ Discover ~ data:', data);
   const genreTitle = 'Pop';
@@ -38,19 +37,19 @@ function Discover() {
         </select>
       </div>
       <div className="flex flex-wrap sm:justify-start justify-center gap-8">
-        {data?.map((song: ISong, i: number) => (
+        {data?.tracks.map((track, i: number) => (
           <SongCard
-            key={song.key}
-            song={song}
+            key={track.key}
+            song={track}
             isPlaying={isPlaying}
             activeSong={activeSong}
-            data={data}
+            data={data.tracks}
             i={i}
           />
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Discover;
