@@ -30,9 +30,20 @@ const App: React.FC = () => {
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-charts" element={<TopCharts />} />
               <Route path="/around-you" element={<AroundYou />} />
-              <Route path="/artists/:id" element={<ArtistDetails />} />
-              <Route path="/songs/:songid" element={<SongDetails />} />
+              <Route path="/artists/:artistId" element={<ArtistDetails />} />
+              <Route path="/songs/:songId" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
+              <Route
+                path="*"
+                element={
+                  <h1
+                    className="
+              text-white text-3xl font-bold text-center mt-5"
+                  >
+                    Error 404: Page not found
+                  </h1>
+                }
+              />
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">

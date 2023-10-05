@@ -22,13 +22,24 @@ const VolumeBar: React.FC<Props> = ({
 }) => (
   <div className="hidden lg:flex flex-1 items-center justify-end">
     {value <= 1 && value > 0.5 && (
-      <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />
+      <BsFillVolumeUpFill
+        title="Mute"
+        size={25}
+        color="#FFF"
+        onClick={() => setVolume(0)}
+      />
     )}
     {value <= 0.5 && value > 0 && (
-      <BsVolumeDownFill size={25} color="#FFF" onClick={() => setVolume(0)} />
+      <BsVolumeDownFill
+        title="Mute"
+        size={25}
+        color="#FFF"
+        onClick={() => setVolume(0)}
+      />
     )}
     {value === 0 && (
       <BsFillVolumeMuteFill
+        title="Unmute"
         size={25}
         color="#FFF"
         onClick={() => setVolume(1)}

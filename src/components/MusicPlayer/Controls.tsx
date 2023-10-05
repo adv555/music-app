@@ -10,7 +10,6 @@ import { ITrack } from '../../types/RootObject';
 
 type Props = {
   isPlaying: boolean;
-  isActive: boolean;
   repeat: boolean;
   setRepeat: React.Dispatch<React.SetStateAction<boolean>>;
   shuffle: boolean;
@@ -23,8 +22,6 @@ type Props = {
 
 const Controls: React.FC<Props> = ({
   isPlaying,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  isActive = false,
   repeat,
   setRepeat,
   shuffle,
@@ -37,6 +34,7 @@ const Controls: React.FC<Props> = ({
   return (
     <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
       <BsArrowRepeat
+        title="Repeat song"
         size={20}
         color={repeat ? 'red' : 'white'}
         onClick={() => setRepeat((prev) => !prev)}
@@ -44,6 +42,7 @@ const Controls: React.FC<Props> = ({
       />
       {currentSongs?.length && (
         <MdSkipPrevious
+          title="Previous song"
           size={30}
           color="#FFF"
           className="cursor-pointer"
@@ -52,6 +51,7 @@ const Controls: React.FC<Props> = ({
       )}
       {isPlaying ? (
         <BsFillPauseFill
+          title="Pause song"
           size={45}
           color="#FFF"
           onClick={handlePlayPause}
@@ -59,6 +59,7 @@ const Controls: React.FC<Props> = ({
         />
       ) : (
         <BsFillPlayFill
+          title="Play song"
           size={45}
           color="#FFF"
           onClick={handlePlayPause}
@@ -67,6 +68,7 @@ const Controls: React.FC<Props> = ({
       )}
       {currentSongs?.length && (
         <MdSkipNext
+          title="Next song"
           size={30}
           color="#FFF"
           className="cursor-pointer"
@@ -74,6 +76,7 @@ const Controls: React.FC<Props> = ({
         />
       )}
       <BsShuffle
+        title="Shuffle songs"
         size={20}
         color={shuffle ? 'red' : 'white'}
         onClick={() => setShuffle((prev) => !prev)}

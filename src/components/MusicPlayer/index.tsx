@@ -40,7 +40,14 @@ const MusicPlayer: React.FC = () => {
     dispatch(playPause(false));
 
     if (!shuffle) {
-      dispatch(nextSong((currentIndex + 1) % currentSongs.length));
+      const nextIndex = currentIndex + 1;
+      if (nextIndex < currentSongs.length) {
+        dispatch(nextSong(nextIndex));
+      } else {
+        dispatch(nextSong(0));
+      }
+
+      // dispatch(nextSong((currentIndex + 1) % currentSongs.length));
     } else {
       dispatch(nextSong(Math.floor(Math.random() * currentSongs.length)));
     }
@@ -66,7 +73,7 @@ const MusicPlayer: React.FC = () => {
       <div className="flex-1 flex flex-col items-center justify-center">
         <Controls
           isPlaying={isPlaying}
-          isActive={isActive}
+          // isActive={isActive}
           repeat={repeat}
           setRepeat={setRepeat}
           shuffle={shuffle}

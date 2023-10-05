@@ -2,20 +2,20 @@ import { createSlice } from '@reduxjs/toolkit';
 import { ITrack } from '../../types/RootObject';
 
 interface IPlayer {
+  activeSong: ITrack | null;
   currentSongs: ITrack[];
   currentIndex: number;
   isActive: boolean;
   isPlaying: boolean;
-  activeSong: ITrack | null;
   genreListId: string;
 }
 
 const initialState: IPlayer = {
+  activeSong: null,
   currentSongs: [],
   currentIndex: 0,
   isActive: false,
   isPlaying: false,
-  activeSong: null,
   genreListId: '',
 };
 
@@ -34,6 +34,8 @@ const playerSlice = createSlice({
       //   state.currentSongs = action.payload.data;
       // }
 
+      state.currentSongs = action.payload.data;
+
       state.currentIndex = action.payload.i;
       state.isActive = true;
     },
@@ -44,6 +46,7 @@ const playerSlice = createSlice({
       // } else {
       //   state.activeSong = state.currentSongs[action.payload];
       // }
+      state.activeSong = state.currentSongs[action.payload];
 
       state.currentIndex = action.payload;
       state.isActive = true;
@@ -55,6 +58,7 @@ const playerSlice = createSlice({
       // } else {
       //   state.activeSong = state.currentSongs[action.payload];
       // }
+      state.activeSong = state.currentSongs[action.payload];
 
       state.currentIndex = action.payload;
       state.isActive = true;

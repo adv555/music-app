@@ -9,6 +9,7 @@ module.exports = {
       },
       animation: {
         slideup: 'slideup 1s ease-in-out',
+        slideup2: 'slideup2 1s ease-in-out',
         slidedown: 'slidedown 1s ease-in-out',
         slideleft: 'slideleft 1s ease-in-out',
         slideright: 'slideright 1s ease-in-out',
@@ -35,6 +36,10 @@ module.exports = {
         slideright: {
           from: { opacity: 0, transform: 'translateX(20px)' },
           to: { opacity: 1, transform: 'translateX(0)' },
+        },
+        slideup2: {
+          from: { opacity: 0, transform: 'translateY(60%)' },
+          to: { opacity: 1, transform: 'none' },
         },
         wave: {
           '0%': { transform: 'scale(0)' },
