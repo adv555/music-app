@@ -1,16 +1,17 @@
 // import React from 'react';
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import {
   ArtistDetails,
   TopArtists,
-  AroundYou,
+  // AroundYou,
   Discover,
   Search,
   SongDetails,
   TopCharts,
+  NotFound,
 } from './pages';
 import { useAppSelector } from './redux/hooks';
 
@@ -26,24 +27,15 @@ const App: React.FC = () => {
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
           <div className="flex-1 h-fit pb-40">
             <Routes>
-              <Route path="/" element={<Discover />} />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Discover />} />
               <Route path="/top-artists" element={<TopArtists />} />
               <Route path="/top-charts" element={<TopCharts />} />
-              <Route path="/around-you" element={<AroundYou />} />
+              {/* <Route path="/around-you" element={<AroundYou />} /> */}
               <Route path="/artists/:artistId" element={<ArtistDetails />} />
               <Route path="/songs/:songId" element={<SongDetails />} />
               <Route path="/search/:searchTerm" element={<Search />} />
-              <Route
-                path="*"
-                element={
-                  <h1
-                    className="
-              text-white text-3xl font-bold text-center mt-5"
-                  >
-                    Error 404: Page not found
-                  </h1>
-                }
-              />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
           <div className="xl:sticky relative top-0 h-fit">
