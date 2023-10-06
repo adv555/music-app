@@ -8,11 +8,13 @@
 
 /* Active Navigation Link */
 .active {
-  @apply text-cyan-500;
+  /* @apply text-cyan-500; */
+  @apply text-accent;
 }
 
 .active svg {
-  @apply text-cyan-500;
+  /* @apply text-cyan-500; */
+  @apply text-accent;
 }
 
 .bar:nth-child(2) {

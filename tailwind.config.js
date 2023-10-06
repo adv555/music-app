@@ -5,7 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        black: '#191624',
+        black: '#100919',
+        'accent-dark': '#1a0e2b',
+        accent: '#b16afb',
+        // player: '#2a2a80',
+        player: '#1f0f48',
       },
       animation: {
         slideup: 'slideup 1s ease-in-out',

@@ -19,9 +19,10 @@ const App: React.FC = () => {
   const { activeSong } = useAppSelector((state) => state.player);
 
   return (
-    <div className="relative flex">
+    <div className="relative flex bg-black">
       <Sidebar />
-      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]">
+      {/* <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-[#121286]"> */}
+      <div className="flex-1 flex flex-col bg-gradient-to-br from-black to-accent">
         <Searchbar />
 
         <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
@@ -45,7 +46,7 @@ const App: React.FC = () => {
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-player backdrop-blur-lg rounded-t-3xl z-10 transition-all">
           <MusicPlayer />
         </div>
       )}
